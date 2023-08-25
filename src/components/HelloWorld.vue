@@ -22,7 +22,8 @@ export default {
     console.log(store.count);
     const {name, count} = storeToRefs(useStore())
     const updateCount = () => {
-      store.count++
+      store.count++;
+      store.name = '李四'
     }
     return {
       store,
