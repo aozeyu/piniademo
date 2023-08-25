@@ -9,6 +9,7 @@
     <button @click="updateCount">
       修改总数
     </button>
+    {{store.arr}}
   </div>
 </template>
 
@@ -22,8 +23,11 @@ export default {
     console.log(store.count);
     const {name, count} = storeToRefs(useStore())
     const updateCount = () => {
-      store.count++;
-      store.name = '李四'
+      store.$patch({
+        count: store.count + 1,
+        name: '李四',
+        arr: store.arr.push(100),
+      })
     }
     return {
       store,
